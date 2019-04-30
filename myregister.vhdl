@@ -31,10 +31,10 @@ architecture behav of myregister is
 	signal regout3: std_logic_vector(7 downto 0);
 	signal regout4: std_logic_vector(7 downto 0);
 
-	signal regenable1: std_logic;
-	signal regenable2: std_logic;
-	signal regenable3: std_logic;
-    signal regenable4: std_logic;
+	signal regenable1: std_logic := '0';
+	signal regenable2: std_logic := '0';
+	signal regenable3: std_logic := '0';
+    signal regenable4: std_logic := '0';
     
 
 begin
