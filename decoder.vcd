@@ -1,0 +1,63 @@
+$date
+  Mon Apr 29 19:14:26 2019
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module decoder_tb $end
+$var reg 8 ! c[7:0] $end
+$var reg 2 " r1[1:0] $end
+$var reg 2 # r2[1:0] $end
+$var reg 2 $ rd[1:0] $end
+$var reg 2 % op[1:0] $end
+$var reg 1 & regw $end
+$var reg 1 ' dist $end
+$var reg 4 ( imm[3:0] $end
+$var reg 1 ) jcount $end
+$upscope $end
+$enddefinitions $end
+#0
+b01110110 !
+b01 "
+b10 #
+b11 $
+b01 %
+1&
+0'
+b0000 (
+0)
+#1000000
+b10001110 !
+b11 "
+b00 $
+b10 %
+#2000000
+b00110011 !
+b00 "
+b00 #
+b11 $
+b00 %
+b0011 (
+#3000000
+b11011001 !
+b11 "
+b01 #
+b00 $
+b11 %
+0&
+b0000 (
+1)
+#4000000
+b11100000 !
+b00 "
+b00 #
+1'
+0)
+#5000000
