@@ -7,7 +7,7 @@ B : in STD_LOGIC_VECTOR (7 downto 0);
 Cin : in STD_LOGIC;
 subt : in STD_LOGIC;
 S : out STD_LOGIC_VECTOR (7 downto 0);
-overflow : out STD_LOGIC;
+overflow : out STD_LOGIC);
 --Cout : out STD_LOGIC);
 end addsub;
 
@@ -25,7 +25,7 @@ end component;
 -- Intermediate Carry declaration
 signal c1,c2,c3,c4,c5,c6,c7,c8: STD_LOGIC;
 signal xor0, xor1, xor2, xor3,xor4,xor5,xor6,xor7: STD_LOGIC;
-
+signal cout: STD_LOGIC;
 begin
 xor0 <= B(0) xor subt; 
 xor1 <= B(1) xor subt;
@@ -35,6 +35,7 @@ xor4 <= B(4) xor subt;
 xor5 <= B(5) xor subt;
 xor6 <= B(6) xor subt;
 xor7 <= B(7) xor subt;
+cout<='0';
 -- Port Mapping Full Adder 4 times
 FA1: fulladder port map( A(0), xor0, subt, S(0), c1); --S0
 FA2: fulladder port map( A(1), xor1, c1, S(1), c2); --S1

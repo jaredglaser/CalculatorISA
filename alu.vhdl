@@ -23,9 +23,9 @@ Cout : out STD_LOGIC);
 end component;
 
 signal addorsub: STD_LOGIC; --maps directly to subt
-signal load: STD_LOGIC; --passthrough value of RD1
-signal in1: STD_LOGIC(7 downto 0);
-signal in2: STD_LOGIC(7 downto 0);
+--signal extend: STD_LOGIC; --passthrough value of RD1
+--signal in1: STD_LOGIC(7 downto 0);
+--signal in2: STD_LOGIC(7 downto 0);
 signal cin: STD_LOGIC;
 
 begin
@@ -34,7 +34,7 @@ begin
     if(OP = "01") then
         addorsub<='0'; --add
     elsif(OP = "10") then
-        addorsub<='1' --sub
+        addorsub<='1'; --sub
     else
         addorsub<='0'; --don't care, bypass ALU
     end if;
@@ -42,5 +42,6 @@ begin
     end process;
 
     ALU1:addsub port map(RD1, RD2, cin, addorsub, RD, extend);
-    
+    end behav;
+
         
