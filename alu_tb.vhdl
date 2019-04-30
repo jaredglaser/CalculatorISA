@@ -30,7 +30,7 @@ end record;
 
 type pattern_array is array (natural range <>) of pattern_type;
 constant patterns : pattern_array :=
-(("01", "10010000", "01101101", "11111101"), --add 144+109=253
+(("01", "01111000", "00000111", "01111111"), --add 120 + 7
 ("10", "10010000", "01101101", "00100011"), --subtract 144-109=35
 ("10", "10010000", "01101101", "11011101")); --subtract 109-144=-35 
 begin
