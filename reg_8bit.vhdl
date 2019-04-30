@@ -14,7 +14,7 @@ architecture behav of reg_8bit is
 signal temp: std_logic_vector(7 downto 0) := "00000000";
 
 begin
-process(I,clock,enable)
+process(clock)
 begin
 if(rising_edge(clock)) then
 	if(enable = '1') then

@@ -47,11 +47,11 @@ end record;
 type pattern_array is array (natural range <>) of pattern_type;
 constant patterns : pattern_array :=
 (("00","00","01",'0','0',"00000000",'0',"00","00000000","00000000"), --clock cycle
-("00","00","00",'0','1',"11111111",'1',"00","00000000","00000000"), --load 11111111 into r0
-("00","00","01",'0','0',"00000000",'0',"00","00000000","00000000"), --clock cycle
-("00","00","00",'0','1',"11111111",'1',"00","00000000","00000000"), --load 11111111 into r0
-("00","00","01",'0','0',"00000000",'0',"00","00000000","00000000"), --clock cycle
-("00","01","01",'0','1',"00000000",'0',"00","11111111","00000000")); --add instruction that reads r0 and r1
+("00","00","01",'0','1',"11111111",'1',"00","11111111","00000000"), --load 11111111 into r0
+("00","00","01",'0','0',"00000000",'0',"00","11111111","00000000"), --clock cycle
+("00","00","01",'0','1',"10101010",'1',"00","10101010","00000000"), --load 11111111 into r0
+("00","00","01",'0','0',"00000000",'0',"00","10101010","00000000"), --clock cycle
+("00","00","01",'0','1',"00000000",'0',"00","10101010","00000000")); --add instruction that reads r0 and r1
 begin
 --  Check each pattern.
 for n in patterns'range loop
@@ -60,14 +60,16 @@ r1 <= patterns(n).r1;
 r2 <= patterns(n).r2;
 op <= patterns(n).op;
 dist <= patterns(n).dist;
-clk <= patterns(n).clk;
+
 WR <= patterns(n).WR;
 reg_write<= patterns(n).reg_write;
 RD <= patterns(n).RD;
 rd1 <= patterns(n).rd1;
 rd2 <= patterns(n).rd2;
 --  Wait for the results.
-wait for 1 ns;
+wait for 0.5 ns;
+clk <= patterns(n).clk;
+wait for 0.5 ns;
 --  Check the outputs.
 if n /= 0 then --ignore the first pattern since it is used to set clock to low and the output is still undefined
 assert rd1 = patterns(n).rd1

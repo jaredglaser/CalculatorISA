@@ -42,14 +42,12 @@ begin
     reg2: reg_8bit port map(wr,clk,regenable2,regout2);
     reg3: reg_8bit port map(wr,clk,regenable3,regout3);
     reg4: reg_8bit port map(wr,clk,regenable4,regout4);
-process(CLK)
-begin
-	
-if(rising_edge(clk)) then
 
-	--Handle setup for writing to register
+    	--Handle setup for writing to register
 --------------------------------------------------
-	if(RD = "00") then
+process (reg_write, RD)
+begin
+    if(RD = "00") then
 		if(REG_WRITE = '1') then
             regenable1 <= '1';
         end if;
@@ -93,8 +91,11 @@ if(rising_edge(clk)) then
 		regenable2 <= '0';
 		regenable3 <= '0';
 	end if;
+end process;
 
---------------------------------------------------------
+process(OP,R1,R2,regout1,regout2,regout3,regout4)
+begin
+-------------------------------------------------------
 --Handle demuxing outputs of flipflops to the outputs
 	if(OP = "01" or OP = "10" or OP = "00") then --add,load,or sub instruction
 		if(R1 = "00") then
@@ -140,7 +141,7 @@ if(rising_edge(clk)) then
 		RD2 <= "00000000";
 	end if;
 	
-end if;
+
 end process;
 end behav;
 
