@@ -41,7 +41,7 @@ begin
     cin<='0';
     end process;
 
-    ALU1:addsub port map(RD1, RD2, cin, addorsub, RD, extend);
+    ALU1:addsub port map(RD1, RD2, cin, addorsub, RD);
     end behav;
 
         
