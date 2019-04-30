@@ -22,7 +22,7 @@ if(rising_edge(clock)) then
         O<=I;
 		end if;
     if(enable = '0') then
-        temp<temp;
+        temp<=temp;
         O<= temp;
 	end if;
 end if;
