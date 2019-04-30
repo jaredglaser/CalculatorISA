@@ -26,10 +26,10 @@ architecture behav of myregister is
 		O:	out std_logic_vector(7 downto 0) -- output the current register content
         );
     end component;
-    signal regout1: std_logic_vector(7 downto 0);
-	signal regout2: std_logic_vector(7 downto 0);
-	signal regout3: std_logic_vector(7 downto 0);
-	signal regout4: std_logic_vector(7 downto 0);
+	signal regout1: std_logic_vector(7 downto 0) := "00000000";
+	signal regout2: std_logic_vector(7 downto 0) := "00000000";
+	signal regout3: std_logic_vector(7 downto 0) := "00000000";
+	signal regout4: std_logic_vector(7 downto 0) := "00000000";
 
 	signal regenable1: std_logic := '0';
 	signal regenable2: std_logic := '0';
@@ -97,35 +97,35 @@ process(OP,R1,R2,regout1,regout2,regout3,regout4)
 begin
 -------------------------------------------------------
 --Handle demuxing outputs of flipflops to the outputs
-	if(OP = "01" or OP = "10" or OP = "00") then --add,load,or sub instruction
+	if(OP = "01") or (OP = "10") or (OP = "00") then --add,load,or sub instruction
 		if(R1 = "00") then
 			RD1 <= regout1;
-		end if;
-		if(R1 = "01") then
+		
+		elsif(R1 = "01") then
 			RD1 <= regout2;
-		end if;
-		if(R1 = "10") then
+	
+		elsif(R1 = "10") then
 			RD1 <= regout3;
-		end if;
-		if(R1 = "11") then
+	
+		elsif(R1 = "11") then
 			RD1 <= regout4;
 		end if;
 
 		if(R2 = "00") then
 			RD2 <= regout1;
-		end if;
-		if(R2 = "01") then
+		
+		elsif(R2 = "01") then
 			RD2 <= regout2;
-		end if;
-		if(R2 = "10") then
+		
+		elsif(R2 = "10") then
 			RD2 <= regout3;
-		end if;
-		if(R2 = "11") then
+		
+		elsif(R2 = "11") then
 			RD2 <= regout4;
 		end if;
 
-	end if;
-	if(OP = "11") then -- COMP or DISP instruction
+	
+	elsif(OP = "11") then -- COMP or DISP instruction
 		if(R1 = "00") then
 			RD1 <= regout1;
 		end if;

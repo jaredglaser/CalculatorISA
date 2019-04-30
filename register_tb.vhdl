@@ -67,9 +67,9 @@ RD <= patterns(n).RD;
 rd1 <= patterns(n).rd1;
 rd2 <= patterns(n).rd2;
 --  Wait for the results.
-wait for 0.5 ns;
+wait for 0 ns; -- wait for delta
 clk <= patterns(n).clk;
-wait for 0.5 ns;
+wait for 1 ns;
 --  Check the outputs.
 if n /= 0 then --ignore the first pattern since it is used to set clock to low and the output is still undefined
 assert rd1 = patterns(n).rd1
