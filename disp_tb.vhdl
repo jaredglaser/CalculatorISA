@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity dist_tb is
-end dist_tb;
+entity disp_tb is
+end disp_tb;
 
-architecture behav of dist_tb is
+architecture behav of disp_tb is
 
 signal    OP:  STD_LOGIC_VECTOR(1 downto 0);
 signal    DIST: STD_LOGIC;
