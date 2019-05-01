@@ -64,7 +64,8 @@ architecture behav of bigcalc is
         OP: in STD_LOGIC_VECTOR(1 downto 0);
         DIST: in STD_LOGIC;
         CLK: in STD_LOGIC;
-        RD1: in STD_LOGIC_VECTOR(7 downto 0)
+        RD1: in STD_LOGIC_VECTOR(7 downto 0);
+        SkipVal: in STD_LOGIC_VECTOR(1 downto 0)
     );
     end component;
 
@@ -81,7 +82,7 @@ architecture behav of bigcalc is
     myalu: alu port map(OP,RD1,RD2,internalALU);
     mydecoder: decoder port map(I,R1,R2,Rd,OP,internalRegWr,DIST,IMM,JCOUNT);
     myjumpsel: jumpsel port map(jcount,OP,DIST,clk,RD1,RD2,internalJump); 
-    mydist: disp port map(OP, DIST, clk, RD1);
+    mydist: disp port map(OP, DIST, clk, RD1,internalJump);
     --handle the mux between ALU and WR
     process(internalALU, imm, OP) is
         begin

@@ -65,6 +65,10 @@ constant patterns : pattern_array :=
 ("00000000", '1'), --load r0 to 0 SKIPPED
 ("11100000", '0'),
 ("11100000", '1'), --display final value of r0 7
+("11000010", '0'),
+("11000010", '1'), --skip 1 since r0 and r1 are 7
+("11100000", '0'),
+("11100000", '1'), --display final value of r0 7 SKIPPED
 ------ANDREW TEST
 ("00000111", '0'),
 ("00000111", '1'), --load $r0 7
