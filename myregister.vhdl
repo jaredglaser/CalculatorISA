@@ -138,7 +138,19 @@ begin
 		if(R1 = "11") then
 			RD1 <= regout4;
 		end if;
-		RD2 <= "00000000";
+
+		if(R2 = "00") then
+			RD2 <= regout1;
+		
+		elsif(R2 = "01") then
+			RD2 <= regout2;
+		
+		elsif(R2 = "10") then
+			RD2 <= regout3;
+		
+		elsif(R2 = "11") then
+			RD2 <= regout4;
+		end if;
 	end if;
 	
 
