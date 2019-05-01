@@ -24,11 +24,11 @@ begin
         op <= "11";
         regw<='0'; --no writing to regs
         imm<="0000"; --no immediate ever
-        dist <= C(6);--and "00100000";
+        dist <= C(5);--and "00100000";
         r1 <= C(4 downto 3);--and "00011000";
         jcount <= C(0);
         if((C and "00100000") = "00000000") then --This is a COMP    
-            r2 <= C(2 downto 0);
+            r2 <= C(2 downto 1);
         else
             r2<="00"; --default? 
         end if;

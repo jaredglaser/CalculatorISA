@@ -12,9 +12,9 @@ entity disp is
 end disp;
 
 architecture behav of disp is
-    signal shit: std_logic;
+    
 begin 
-    process(OP, DIST, CLK) is
+    process(OP, DIST,RD1,clk) is
         variable int_val : integer;
         
     begin
