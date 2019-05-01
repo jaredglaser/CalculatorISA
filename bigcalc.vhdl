@@ -76,9 +76,15 @@ architecture behav of myregister is
     myjumpsel: jumpsel port map(jcount,OP,DIST,Feedback,clk,RD1,RD2,internalJump); 
 
     --handle the mux between ALU and WR
-    process(internalALU, imm, OP)
+    process(internalALU, imm, OP) is
+        begin
         if(OP = "00") then --it is a load
-            WR <= imm;
+            WR(3 downto 0) <= imm;
+            if(imm(3) = '1') then
+                WR(7 downto 4) <= "1111";
+            else
+                WR(7 downto 4) <= "0000";
+            end if;
         else
             WR <= internalALU;
         end if;
@@ -86,7 +92,8 @@ architecture behav of myregister is
     end process;
 
     --handle the black box between jumpsel and regwr
-    process(internalJump, internalRegWr)
+    process(internalJump, internalRegWr) is
+        begin
         if(internalJump = "01") or (internalJump = "10") then
             REG_WRITE <= '0';
         else
