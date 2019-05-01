@@ -8,7 +8,7 @@ entity bigcalc is
     );
 end bigcalc;
 
-architecture behav of myregister is
+architecture behav of bigcalc is
 
     component myregister
     port(	
@@ -21,8 +21,8 @@ architecture behav of myregister is
 		REG_WRITE: in std_logic;
 		RD: in std_logic_vector(1 downto 0);
 		RD1: out std_logic_vector(7 downto 0); 
-		RD2:	out std_logic_vector(7 downto 0) 
-    ;
+        RD2:	out std_logic_vector(7 downto 0)
+    );
     end component;
 
     component alu
@@ -53,28 +53,35 @@ architecture behav of myregister is
         jcount: in std_logic;
         OP: in std_logic_vector(1 downto 0);
         DIST: in std_logic;
-        Feedback: in std_logic_vector(1 downto 0);
         clk: in std_logic;
         RD1, RD2: in std_logic_vector(7 downto 0);
-        O: in std_logic_vector(1 downto 0)
+        O: out std_logic_vector(1 downto 0)
+    );
+    end component;
+
+    component disp is 
+    port(
+        OP: in STD_LOGIC_VECTOR(1 downto 0);
+        DIST: in STD_LOGIC;
+        CLK: in STD_LOGIC;
+        RD1: in STD_LOGIC_VECTOR(7 downto 0)
     );
     end component;
 
     signal R1,R2,RD, OP: std_logic_vector(1 downto 0);    
     signal DIST, REG_WRITE,Jcount: std_logic;
-    signal WR, RD1,RD2,:std_logic_vector(7 downto 0);
+    signal WR, RD1,RD2:std_logic_vector(7 downto 0);
     signal imm:std_logic_vector(3 downto 0);
-
     signal internalJump: std_logic_vector(1 downto 0);
-    signal internalRegWr: std_logic_vector;
+    signal internalRegWr: std_logic;
     signal internalALU: std_logic_vector(7 downto 0);
 
     begin
     myreg: myregister port map(R1,R2,OP,DIST,CLK,WR,REG_WRITE,RD,RD1,RD2);
     myalu: alu port map(OP,RD1,RD2,internalALU);
     mydecoder: decoder port map(I,R1,R2,Rd,OP,internalRegWr,DIST,IMM,JCOUNT);
-    myjumpsel: jumpsel port map(jcount,OP,DIST,Feedback,clk,RD1,RD2,internalJump); 
-
+    myjumpsel: jumpsel port map(jcount,OP,DIST,clk,RD1,RD2,internalJump); 
+    mydist: disp port map(OP, DIST, clk, RD1);
     --handle the mux between ALU and WR
     process(internalALU, imm, OP) is
         begin

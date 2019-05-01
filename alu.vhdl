@@ -6,8 +6,8 @@ entity alu is
         OP: in STD_LOGIC_VECTOR(1 downto 0);
         RD1: in STD_LOGIC_VECTOR(7 downto 0);
         RD2: in STD_LOGIC_VECTOR(7 downto 0);
-        RD: out STD_LOGIC_VECTOR(7 downto 0);
-        extend: out STD_LOGIC
+        RD: out STD_LOGIC_VECTOR(7 downto 0)
+        --extend: out STD_LOGIC
 );
 end alu;
 
@@ -17,9 +17,9 @@ Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
 B : in STD_LOGIC_VECTOR (7 downto 0);
 Cin : in STD_LOGIC;
 subt : in STD_LOGIC;
-S : out STD_LOGIC_VECTOR (7 downto 0);
-overflow : out STD_LOGIC;
-Cout : out STD_LOGIC);
+S : out STD_LOGIC_VECTOR (7 downto 0));
+--overflow : out STD_LOGIC;
+--Cout : out STD_LOGIC);
 end component;
 
 signal addorsub: STD_LOGIC; --maps directly to subt

@@ -6,8 +6,8 @@ Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
 B : in STD_LOGIC_VECTOR (7 downto 0);
 Cin : in STD_LOGIC;
 subt : in STD_LOGIC;
-S : out STD_LOGIC_VECTOR (7 downto 0);
-overflow : out STD_LOGIC);
+S : out STD_LOGIC_VECTOR (7 downto 0));
+--overflow : out STD_LOGIC);
 --Cout : out STD_LOGIC);
 end addsub;
 
@@ -45,6 +45,6 @@ FA5: fulladder port map( A(4), xor4, c4, S(4), c5); --S4
 FA6: fulladder port map( A(5), xor5, c5, S(5), c6); --S5
 FA7: fulladder port map( A(6), xor6, c6, S(6), c7); --S6
 FA8: fulladder port map( A(7), xor7, c7, S(7), Cout); --S7
-overflow <= c7 XOR c8;
+--overflow <= c7 XOR c8;
 --Cout <= c8;
 end Behavioral;

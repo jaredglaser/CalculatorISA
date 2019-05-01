@@ -1,0 +1,34 @@
+$date
+  Tue Apr 30 13:32:25 2019
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module alu_tb $end
+$var reg 2 ! op[1:0] $end
+$var reg 8 " rd1[7:0] $end
+$var reg 8 # rd2[7:0] $end
+$var reg 8 $ rd[7:0] $end
+$var reg 1 % extend $end
+$upscope $end
+$enddefinitions $end
+#0
+b01 !
+b10010000 "
+b01101101 #
+b11111101 $
+0%
+#1000000
+b10 !
+b00100011 $
+#2000000
+b11011101 $
+1%
+#3000000

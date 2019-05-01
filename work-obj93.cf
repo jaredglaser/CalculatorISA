@@ -1,0 +1,43 @@
+v 4
+file . "fulladder.vhdl" "c7a21c31a3d575b45db72ad825614441ac6db50e" "20190501004254.496":
+  entity fulladder at 1( 0) + 0 on 109;
+  architecture behavioral of fulladder at 12( 190) + 0 on 110;
+file . "bigcalc.vhdl" "29c783cfa253582b280bc134c8ed07b4b2506d5e" "20190501005015.576":
+  entity bigcalc at 1( 0) + 0 on 125;
+  architecture behav of bigcalc at 11( 164) + 0 on 126;
+file . "jumpsel.vhdl" "ee7c1ade4f0658a9ad803fd88e4cfc726b5ce4e6" "20190501003703.272":
+  entity jumpsel at 1( 0) + 0 on 89;
+  architecture behav of jumpsel at 17( 313) + 0 on 90;
+file . "disp_tb.vhdl" "f7536d8afa83ffa122cdfec9ac635814091538e6" "20190501003804.239":
+  entity disp_tb at 1( 0) + 0 on 99;
+  architecture behav of disp_tb at 8( 102) + 0 on 100;
+file . "myregister.vhdl" "466f1cc1c179dbcc752727491e0b4d4eb5300644" "20190501003803.824":
+  entity myregister at 1( 0) + 0 on 93;
+  architecture behav of myregister at 21( 445) + 0 on 94;
+file . "decoder_tb.vhdl" "ca84a6d4627cbf6413d13a588b34d688040e6e34" "20190430220011.001":
+  entity decoder_tb at 1( 0) + 0 on 51;
+  architecture behav of decoder_tb at 7( 82) + 0 on 52;
+file . "decoder.vhdl" "e4d47b5cde61ca6b9d3af43f609d12ca647de5a6" "20190430220015.043":
+  entity decoder at 1( 0) + 0 on 53;
+  architecture behavioral of decoder at 18( 457) + 0 on 54;
+file . "reg_8bit.vhdl" "b3205ad20e18eacfc97a298cecf09b66c6535e89" "20190501003803.746":
+  entity reg_8bit at 1( 0) + 0 on 91;
+  architecture behav of reg_8bit at 13( 319) + 0 on 92;
+file . "register_tb.vhdl" "f8c7e7db6e320e6ff3dfabb706e1a3901d01f23a" "20190501003803.936":
+  entity register_tb at 1( 0) + 0 on 95;
+  architecture behav of register_tb at 8( 114) + 0 on 96;
+file . "disp.vhdl" "bc944db94c2afdc6fc4b888f981c8b91bc4514a4" "20190501003804.186":
+  entity disp at 1( 0) + 0 on 97;
+  architecture behav of disp at 14( 259) + 0 on 98;
+file . "bigcalc_tb.vhdl" "7fe28883c62018f3c8216deeb4d5b6ebabee61af" "20190501005019.421":
+  entity bigcalc_tb at 1( 0) + 0 on 127;
+  architecture behav of bigcalc_tb at 7( 82) + 0 on 128;
+file . "addsub.vhdl" "abd539897414d630149e2d54c9e4f1f917f90a68" "20190501004839.149":
+  entity addsub at 1( 0) + 0 on 113;
+  architecture behavioral of addsub at 14( 292) + 0 on 114;
+file . "alu.vhdl" "aaf8804e37c93544865ac54dc93bb6c385aff12c" "20190501005036.809":
+  entity alu at 1( 0) + 0 on 129;
+  architecture behav of alu at 14( 295) + 0 on 130;
+file . "alu_tb.vhdl" "0214af07939ea7e24ed874a0304bc59c0dd3a106" "20190501004956.604":
+  entity alu_tb at 1( 0) + 0 on 123;
+  architecture behav of alu_tb at 5( 73) + 0 on 124;
