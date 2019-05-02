@@ -105,7 +105,6 @@ constant patterns : pattern_array :=
 ("10100001", '1'), -- sub $r2 $r0 $r1
 ("11110000", '0'),
 ("11110000", '1'), --display final value of $r2 - 4
---cancer time
 ("00100000", '0'), 
 ("00100000", '1'),--load $r2 0
 ("00001000", '0'), 
