@@ -29,6 +29,7 @@ end record;
 
 type pattern_array is array (natural range <>) of pattern_type;
 constant patterns : pattern_array :=
+--Numerical tests that involve skips
 (("00000111", '0'), 
 ("00000111", '1'), --load $r0 7
 ("00010111", '0'), 
@@ -69,7 +70,7 @@ constant patterns : pattern_array :=
 ("11000010", '1'), --skip 1 since r0 and r1 are 7
 ("11100000", '0'),
 ("11100000", '1'), --display final value of r0 7 SKIPPED
-------ANDREW TEST
+------More Numerical Tests including negative values
 ("00000111", '0'),
 ("00000111", '1'), --load $r0 7
 ("00010111", '0'),
@@ -95,7 +96,31 @@ constant patterns : pattern_array :=
 ("01010011", '0'),
 ("01010011", '1'), --add $r1 $r0 $r3, $r1 = -7 +-12 = -19
 ("11101000", '0'),
-("11101000", '1')); --display final value: -19
+("11101000", '1'), --display final value: -19
+("00000111", '0'),
+("00000111", '1'), -- load $r0 7
+("00010011", '0'),
+("00010011", '1'), -- load $r1 3
+("10100001", '0'),
+("10100001", '1'), -- sub $r2 $r0 $r1
+("11110000", '0'),
+("11110000", '1'), --display final value of $r2 - 4
+--cancer time
+("00100000", '0'), 
+("00100000", '1'),--load $r2 0
+("00001000", '0'), 
+("00001000", '1'),--load $r0 -8
+("00011000", '0'), 
+("00011000", '1'),--load $r1 -8
+("01100001", '0'), 
+("01100001", '1'),--add $r2 $r1 $r0 = -8+-8=-16
+("01111001", '0'),
+("01111001", '1'),--add $r3 $r2 $r0 = -8+-16=-24
+("01011011", '0'),
+("01011011", '1'),--add $r1 $r2 $r3 = -24+-16=-40
+("11101000", '0'),
+("11101000", '1') --disp $r3 = -32
+);
 
 
 begin

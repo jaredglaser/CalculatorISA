@@ -22,8 +22,24 @@ begin
     if(rising_edge(CLK)) then
         int_val := to_integer(signed(RD1));
         if((OP = "11") and (DIST = '1')) and (SkipVal = "00") then
-            report " " & integer'image(int_val) severity note;
-        end if;
+        if(int_val >= 0) then
+            if(int_val < 10) then
+              report "000" & integer'image(int_val) severity note;
+            elsif(int_val < 100) then
+              report "00" & integer'image(int_val) severity note;
+            else
+              report "0" & integer'image(int_val) severity note;
+            end if;
+          else --Display value is negative
+            if(int_val > -10) then
+              report "00" & integer'image(int_val) severity note;
+            elsif(int_val > -100) then
+              report "0" & integer'image(int_val) severity note;
+            else
+              report integer'image(int_val) severity note;
+            end if;
+          end if;
+          end if;
     end if;
     end process;
 end behav;
